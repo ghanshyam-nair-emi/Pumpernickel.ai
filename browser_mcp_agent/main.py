@@ -1,5 +1,7 @@
 import asyncio
 import os
+from dotenv import load_dotenv
+load_dotenv()
 import streamlit as st
 from textwrap import dedent
 
@@ -9,28 +11,103 @@ from mcp_agent.workflows.llm.augmented_llm_openai import OpenAIAugmentedLLM
 from mcp_agent.workflows.llm.augmented_llm import RequestParams
 
 # Page config
-st.set_page_config(page_title="Browser MCP Agent", page_icon="🌐", layout="wide")
+st.set_page_config(page_title="Pumpernickel", layout="wide")
+
+# Custom CSS for grey and green theme
+st.markdown(
+    """
+    <style>
+    body, .main, .block-container {
+        background-color: #f5f5f5 !important;
+        color: #2c2c2c !important;
+    }
+    .main-header {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: #2c2c2c;
+        background: linear-gradient(90deg, #e8f5e8 0%, #d4edda 100%);
+        padding: 24px 0 12px 0;
+        border-radius: 8px;
+        text-align: center;
+        margin-bottom: 0.5em;
+        border: 2px solid #28a745;
+    }
+    .subtitle {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #6c757d;
+        margin-bottom: 1.5rem;
+    }
+    .stTextArea textarea {
+        background-color: #ffffff !important;
+        color: #2c2c2c !important;
+        border: 2px solid #28a745 !important;
+        border-radius: 8px;
+    }
+    .stButton button {
+        background-color: #28a745 !important;
+        color: #ffffff !important;
+        border-radius: 8px;
+        border: none;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+    .stButton button:hover {
+        background-color: #218838 !important;
+        transform: translateY(-1px);
+    }
+    .stSpinner > div > div {
+        color: #28a745 !important;
+    }
+    .stMarkdown, .stCaption, .stText {
+        color: #2c2c2c !important;
+    }
+    .sidebar .sidebar-content {
+        background-color: #f8f9fa !important;
+        color: #2c2c2c !important;
+        border-right: 3px solid #28a745;
+    }
+    .sidebar h3 {
+        color: #28a745 !important;
+        border-bottom: 2px solid #28a745;
+        padding-bottom: 8px;
+    }
+    .help-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #28a745;
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    .help-section h4 {
+        color: #28a745 !important;
+        margin-bottom: 15px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Title and description
-st.markdown("<h1 class='main-header'>🌐 Browser MCP Agent</h1>", unsafe_allow_html=True)
-st.markdown("Interact with a powerful web browsing agent that can navigate and interact with websites")
+st.markdown("<div class='main-header'>Pumpernickel</div>", unsafe_allow_html=True)
+st.markdown("<div class='subtitle'>A Hovershelf Product - Intelligent Web Browsing Agent</div>", unsafe_allow_html=True)
 
 # Setup sidebar with example commands
 with st.sidebar:
-    st.markdown("### Example Commands")
+    st.markdown("<h3 style='color:#28a745;'>Example Commands</h3>", unsafe_allow_html=True)
     
-    st.markdown("**Navigation**")
+    st.markdown("<p style='color:#28a745; font-weight:600;'>Navigation</p>", unsafe_allow_html=True)
     st.markdown("- Go to wikipedia.org/wiki/computer_vision")
     
-    st.markdown("**Interactions**")
+    st.markdown("<p style='color:#28a745; font-weight:600;'>Interactions</p>", unsafe_allow_html=True)
     st.markdown("- Click on the link to object detection and take a screenshot")
     st.markdown("- Scroll down to view more content")
     
-    st.markdown("**Multi-step Tasks**")
+    st.markdown("<p style='color:#28a745; font-weight:600;'>Multi-step Tasks</p>", unsafe_allow_html=True)
     st.markdown("- Navigate to wikipedia.org/wiki/computer_vision, scroll down, and report details")
     st.markdown("- Scroll down and summarize the wikipedia page")
     
-    st.markdown("---")
+    st.markdown("<hr style='border-color:#28a745;'>", unsafe_allow_html=True)
     st.caption("Note: The agent uses Puppeteer to control a real browser.")
 
 # Query input
@@ -107,25 +184,26 @@ async def run_mcp_agent(message):
         return f"Error: {str(e)}"
 
 # Run button
-if st.button("🚀 Run Command", type="primary", use_container_width=True):
+if st.button("Run Command", type="primary", use_container_width=True):
     with st.spinner("Processing your request..."):
         result = st.session_state.loop.run_until_complete(run_mcp_agent(query))
     
     # Display results
-    st.markdown("### Response")
-    st.markdown(result)
+    st.markdown("<h4 style='color:#28a745;'>Response</h4>", unsafe_allow_html=True)
+    st.markdown(f"<div style='background:#ffffff;padding:16px;border-radius:8px;color:#2c2c2c;border:1px solid #28a745;'>{result}</div>", unsafe_allow_html=True)
 
 # Display help text for first-time users
 if 'result' not in locals():
     st.markdown(
-        """<div style='padding: 20px; background-color: #f0f2f6; border-radius: 10px;'>
-        <h4>How to use this app:</h4>
+        """
+        <div class='help-section'>
+        <h4 style='color:#28a745;'>How to use Pumpernickel:</h4>
         <ol>
-            <li>Enter your OpenAI API key in your mcp_agent.secrets.yaml file</li>
+            <li>Enter your OpenAI API key in your <code>.env</code> file</li>
             <li>Type a command for the agent to navigate and interact with websites</li>
             <li>Click 'Run Command' to see results</li>
         </ol>
-        <p><strong>Capabilities:</strong></p>
+        <p><strong style='color:#28a745;'>Capabilities:</strong></p>
         <ul>
             <li>Navigate to websites using Puppeteer</li>
             <li>Click on elements, scroll, and type text</li>
@@ -133,10 +211,11 @@ if 'result' not in locals():
             <li>Extract information from web pages</li>
             <li>Perform multi-step browsing tasks</li>
         </ul>
-        </div>""", 
+        </div>
+        """,
         unsafe_allow_html=True
     )
 
 # Footer
-st.markdown("---")
-st.write("Built with Streamlit, Puppeteer, and MCP-Agent Framework ❤️")
+st.markdown("<hr style='border-color:#28a745;'>", unsafe_allow_html=True)
+st.markdown("<div style='text-align:center;color:#6c757d;'>Built with Streamlit, Puppeteer, and MCP-Agent Framework</div>", unsafe_allow_html=True)
