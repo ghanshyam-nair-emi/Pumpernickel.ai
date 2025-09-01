@@ -3,3 +3,7 @@ browser_mcp_agent/.env
 browser_mcp_agent/mcp_agent.secrets.yaml.example
 browser_mcp_agent/logs/
 browser_mcp_agent/venv/
+ai_arxiv_agent_memory/venv
+qdrant_storage/.qdrant_fs_check
+qdrant_storage/aliases/data.json
+qdrant_storage/raft_state.json
