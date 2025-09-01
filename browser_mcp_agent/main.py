@@ -64,13 +64,19 @@ st.markdown(
     }
     .sidebar .sidebar-content {
         background-color: #f8f9fa !important;
-        color: #2c2c2c !important;
+        color: #ffffff !important;
         border-right: 3px solid #28a745;
     }
     .sidebar h3 {
         color: #28a745 !important;
         border-bottom: 2px solid #28a745;
         padding-bottom: 8px;
+    }
+    .sidebar .stMarkdown {
+        color: #ffffff !important;
+    }
+    .sidebar .stCaption {
+        color: #ffffff !important;
     }
     .help-section {
         background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -96,16 +102,16 @@ st.markdown("<div class='subtitle'>A Hovershelf Product - Intelligent Web Browsi
 with st.sidebar:
     st.markdown("<h3 style='color:#28a745;'>Example Commands</h3>", unsafe_allow_html=True)
     
-    st.markdown("<p style='color:#28a745; font-weight:600;'>Navigation</p>", unsafe_allow_html=True)
-    st.markdown("- Go to wikipedia.org/wiki/computer_vision")
+    st.markdown("<p style='color:#ffffff; font-weight:600;'>Navigation</p>", unsafe_allow_html=True)
+    st.markdown("<span style='color:#ffffff;'>- Go to wikipedia.org/wiki/computer_vision</span>", unsafe_allow_html=True)
     
-    st.markdown("<p style='color:#28a745; font-weight:600;'>Interactions</p>", unsafe_allow_html=True)
-    st.markdown("- Click on the link to object detection and take a screenshot")
-    st.markdown("- Scroll down to view more content")
+    st.markdown("<p style='color:#ffffff; font-weight:600;'>Interactions</p>", unsafe_allow_html=True)
+    st.markdown("<span style='color:#ffffff;'>- Click on the link to object detection and take a screenshot</span>", unsafe_allow_html=True)
+    st.markdown("<span style='color:#ffffff;'>- Scroll down to view more content</span>", unsafe_allow_html=True)
     
-    st.markdown("<p style='color:#28a745; font-weight:600;'>Multi-step Tasks</p>", unsafe_allow_html=True)
-    st.markdown("- Navigate to wikipedia.org/wiki/computer_vision, scroll down, and report details")
-    st.markdown("- Scroll down and summarize the wikipedia page")
+    st.markdown("<p style='color:#ffffff; font-weight:600;'>Multi-step Tasks</p>", unsafe_allow_html=True)
+    st.markdown("<span style='color:#ffffff;'>- Navigate to wikipedia.org/wiki/computer_vision, scroll down, and report details</span>", unsafe_allow_html=True)
+    st.markdown("<span style='color:#ffffff;'>- Scroll down and summarize the wikipedia page</span>", unsafe_allow_html=True)
     
     st.markdown("<hr style='border-color:#28a745;'>", unsafe_allow_html=True)
     st.caption("Note: The agent uses Puppeteer to control a real browser.")
