@@ -1,0 +1,5 @@
+ai_arxiv_agent_memory/.env
+browser_mcp_agent/.env
+browser_mcp_agent/mcp_agent.secrets.yaml.example
+browser_mcp_agent/logs/
+browser_mcp_agent/venv/
