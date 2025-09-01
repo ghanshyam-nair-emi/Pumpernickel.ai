@@ -1,6 +1,4 @@
-# 🌐 Browser MCP Agent
-
-![Area](https://github.com/user-attachments/assets/285a6a02-c1a9-4581-b32b-b244f665f648)
+# PumpernickelAI - Browser MCP Agent - A Hovershelf Product
 
 A Streamlit application that allows you to browse and interact with websites using natural language commands through the Model Context Protocol (MCP) and [MCP-Agent](https://github.com/lastmile-ai/mcp-agent) with Puppeteer integration.
 
@@ -27,8 +25,8 @@ A Streamlit application that allows you to browse and interact with websites usi
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/Shubhamsaboo/awesome-llm-apps.git
-   cd mcp_ai_agents/browser_mcp_agent
+   git clone https://github.com/ghanshyam-nair-emi/Pumpernickel.ai.git
+   cd Pumpernickel.ai/browser_mcp_agent
    ```
 
 2. Install the required Python packages:

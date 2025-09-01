@@ -1,5 +1,6 @@
-## 📚 AI Research Agent with Memory
-This Streamlit app implements an AI-powered research assistant that helps users search for academic papers on arXiv while maintaining a memory of user interests and past interactions. It utilizes OpenAI's GPT-4o-mini model for processing search results, MultiOn for web browsing, and Mem0 with Qdrant for maintaining user context.
+## ARXIV Search - A Hovershelf Product
+
+This Streamlit application provides an AI-powered research assistant that helps users search for academic papers on arXiv while maintaining a memory of user interests and past interactions. It utilizes OpenAI's GPT-4o-mini model for processing search results, MultiOn for web browsing, and Mem0 with Qdrant for maintaining user context.
 
 ### Features
 
@@ -11,10 +12,10 @@ This Streamlit app implements an AI-powered research assistant that helps users 
 
 ### How to get Started?
 
-1. Clone the GitHub repository
+1. Clone or download the project files:
 ```bash
-git clone https://github.com/Shubhamsaboo/awesome-llm-apps.git
-cd awesome-llm-apps/llm_apps_with_memory_tutorials/ai_arxiv_agent_memory
+git clone https://github.com/ghanshyam-nair-emi/Pumpernickel.ai.git
+cd Pumpernickel.ai/ai_arxiv_agent_memory
 ```
 
 2. Install the required dependencies:
@@ -26,9 +27,15 @@ pip install -r requirements.txt
 3. Ensure Qdrant is running:
 The app expects Qdrant to be running on localhost:6333. Adjust the configuration in the code if your setup is different.
 
-```bash
+For Windows PowerShell:
+```powershell
 docker pull qdrant/qdrant
 
+docker run -p 6333:6333 -p 6334:6334 -v "${PWD}/qdrant_storage:/qdrant/storage:z" qdrant/qdrant
+```
+
+For Linux/Mac:
+```bash
 docker run -p 6333:6333 -p 6334:6334 \
     -v $(pwd)/qdrant_storage:/qdrant/storage:z \
     qdrant/qdrant
